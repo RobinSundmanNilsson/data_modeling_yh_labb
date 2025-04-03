@@ -1,0 +1,106 @@
+Table Student {
+  student_id INTEGER [primary key]
+  first_name VARCHAR(50) [not null]
+  last_name VARCHAR(50) [not null]
+  address VARCHAR(100) [not null]
+  email VARCHAR(250) [not null]
+}
+
+Table Student_Registration {
+  registration_id INTEGER [primary key]
+  student_id INTEGER [not null, ref: > Student.student_id]
+  class_id INTEGER [not null, ref: > Class.class_id]
+  start_date DATE
+  end_date DATE 
+  registration_status VARCHAR [not null] // eg. "active", "completed", "dropped"
+}
+
+Table Class {
+  class_id INTEGER [primary key]
+  class_name VARCHAR(10)
+  start_date DATE
+  end_date DATE
+  program_id INTEGER [ref: > Program.program_id]
+  campus_id INTEGER [not null, ref: > Campus.campus_id]
+}
+
+Table Program {
+  program_id INTEGER [primary key]
+  program_name VARCHAR(250) [not null]
+  description TEXT [not null]
+}
+
+Table Program_Course {
+  program_id INTEGER [primary key, ref: > Program.program_id]
+  course_id INTEGER [primary key, ref: > Course.course_id]
+}
+
+Table Course {
+  course_id INTEGER [primary key]
+  course_name VARCHAR(250) [not null]
+  course_code VARCHAR(25) [not null]
+  credits INTEGER [not null]
+  description TEXT [not null]
+  course_type VARCHAR [not null] // e.g "program" or "standalone"
+}
+
+Table Instructor {
+  instructor_id INTEGER [primary key]
+  first_name VARCHAR(50) [not null]
+  last_name VARCHAR(50) [not null]
+  email VARCHAR(250) [not null]
+}
+
+Table Instructor_Course {
+  instructor_id INTEGER [primary key, ref: > Instructor.instructor_id]
+  course_id INTEGER [primary key, ref: > Course.course_id]
+  teaching_period VARCHAR(10)
+  hours_allocated INTEGER
+}
+
+Table Consultant {
+  consultant_id INTEGER [primary key]
+  company_name VARCHAR(250) [not null]
+  org_number VARCHAR(13) [not null]
+  vat_registered BOOL [not null]
+  address VARCHAR(100) [not null]
+  hourly_rate NUMERIC [not null]
+}
+
+Table Employment {
+  employment_id INTEGER [primary key]
+  instructor_id INTEGER [ref: > Instructor.instructor_id]
+  consultant_id INTEGER [ref: > Consultant.consultant_id]
+  start_date DATE
+  end_date DATE
+}
+
+Table Education_Manager {
+  manager_id INTEGER [primary key]
+  first_name VARCHAR(50) [not null]
+  last_name VARCHAR(50) [not null]
+  email VARCHAR(250) [not null]
+  phone_number VARCHAR(20) [not null]
+  employment_id int [not null, ref: > Employment.employment_id]
+}
+
+Table Education_Manager_Assignment {
+  assignment_id INTEGER [primary key]
+  manager_id INTEGER [ref: > Education_Manager.manager_id]
+  class_id INTEGER [ref: > Class.class_id]
+  start_date DATE
+  end_date DATE
+}
+
+Table Campus {
+  campus_id INTEGER [primary key]
+  campus_name VARCHAR(100) [not null]
+  address VARCHAR(100) [not null]
+}
+
+Table Sensitive_Personal_Info {
+  sensitive_info_id INTEGER [primary key]
+  social_security_number VARCHAR(13) [not null, unique]
+  student_id int [not null, ref: > Student.student_id]
+  employment_id int [not null, ref: > Employment.employment_id]
+}

@@ -35,7 +35,7 @@ INSERT INTO Class (class_name, start_date, end_date, program_id, campus_id) VALU
     ('UX25B', '2025-08-20', '2027-06-20', 2, 2),
     ('FS25A', '2025-08-25', '2027-06-25', 3, 1),
     ('FS25B', '2025-08-25', '2027-06-25', 3, 2),
-    ('API26A', '2026-01-15', '2026-03-30', NULL, 1);
+    ('API25A', '2025-08-15', '2025-11-30', NULL, 1);
 
 -- Student (28 st)
 INSERT INTO Student (first_name, last_name, address, email) VALUES
@@ -117,16 +117,16 @@ INSERT INTO Consultant (company_name, org_number, vat_registered, address, hourl
 
 -- Employment
 INSERT INTO Employment (instructor_id, consultant_id, start_date, end_date) VALUES
-    (NULL, NULL, '2024-06-01', NULL),  -- Lena
-    (NULL, NULL, '2024-06-01', NULL),  -- Per
+    (NULL, NULL, '2025-06-01', NULL),  -- Lena
+    (NULL, NULL, '2025-06-01', NULL),  -- Per
     (NULL, NULL, '2025-01-01', NULL),  -- Eva
-    (1, NULL, '2024-06-01', NULL),     -- Sara
-    (2, NULL, '2024-06-01', NULL),     -- Oskar
-    (3, 2, '2024-06-01', NULL),        -- Jenny (UXPro AB)
-    (4, 1, '2024-06-01', NULL),        -- Ali (PixelPartner AB)
-    (5, 3, '2024-12-01', NULL),        -- Mats (APIExperts)
-    (6, NULL, '2024-06-01', NULL),     -- Elin
-    (7, NULL, '2024-06-01', NULL);     -- Karin
+    (1, NULL, '2025-06-01', NULL),     -- Sara
+    (2, NULL, '2025-06-01', NULL),     -- Oskar
+    (3, 2, '2025-06-01', NULL),        -- Jenny (UXPro AB)
+    (4, 1, '2025-06-01', NULL),        -- Ali (PixelPartner AB)
+    (5, 3, '2025-12-01', NULL),        -- Mats (APIExperts)
+    (6, NULL, '2025-06-01', NULL),     -- Elin
+    (7, NULL, '2025-06-01', NULL);     -- Karin
 
 -- Education_Manager
 INSERT INTO Education_Manager (first_name, last_name, email, phone_number, employment_id) VALUES
@@ -142,7 +142,7 @@ INSERT INTO Education_Manager_Assignment (manager_id, class_id, start_date, end_
     (2, 2, '2025-08-01', NULL),
     (2, 4, '2025-08-01', NULL),
     (2, 6, '2025-08-01', NULL),
-    (3, 7, '2026-01-01', NULL);
+    (3, 7, '2025-08-01', NULL);
 
 -- Instructor_Course
 INSERT INTO Instructor_Course (instructor_id, course_id, teaching_period, hours_allocated) VALUES
@@ -150,7 +150,7 @@ INSERT INTO Instructor_Course (instructor_id, course_id, teaching_period, hours_
     (2, 2, 'VT26', 70),
     (3, 3, 'HT25', 50),
     (4, 4, 'VT26', 55),
-    (5, 7, 'VT26', 60),
+    (5, 7, 'HT25', 60),
     (6, 5, 'HT25', 65),
     (7, 6, 'VT26', 75);
 

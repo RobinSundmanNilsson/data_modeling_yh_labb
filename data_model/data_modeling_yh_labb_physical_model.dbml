@@ -12,7 +12,7 @@ Table Student_Registration {
   class_id INTEGER [not null, ref: > Class.class_id]
   start_date DATE
   end_date DATE 
-  registration_status VARCHAR [not null] // eg. "active", "completed", "dropped"
+  registration_status VARCHAR [not null] // e.g. "active", "completed", "dropped"
 }
 
 Table Class {
@@ -41,7 +41,7 @@ Table Course {
   course_code VARCHAR(25) [not null]
   credits INTEGER [not null]
   description TEXT [not null]
-  course_type VARCHAR [not null] // e.g "program" or "standalone"
+  course_type VARCHAR [not null] // e.g. "program" or "standalone"
 }
 
 Table Instructor {

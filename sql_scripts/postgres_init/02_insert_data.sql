@@ -2,8 +2,8 @@ SET search_path TO yrkesco;
 
 -- Campus
 INSERT INTO Campus (campus_name, address) VALUES
-    ('Stockholm', 'Djurgårdsvägen 38-40, 115 21 Stockholm'),
-    ('Göteborg', 'Linnégatan 5, 413 04 Göteborg');
+    ('YrkesCo Stockholm', 'Djurgårdsvägen 38-40, 115 21 Stockholm'),
+    ('YrkesCo Göteborg', 'Linnégatan 5, 413 04 Göteborg');
 
 -- Program
 INSERT INTO Program (program_name, description) VALUES
